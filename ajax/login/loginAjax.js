@@ -6,7 +6,7 @@ function registroLogin(){
         data: $("#formularioLogin").serialize(),
         success: function(response){
             if(response == '1'){
-                location.replace('modulos/formularioRegistrarUsuario.php');
+                location.replace('modulos/formularioCrearProducto.php');
             }else{
                 $("#respuesta").html(response);
             }
