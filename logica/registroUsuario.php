@@ -13,7 +13,8 @@
             </div>";
     }else{
         $usuario = usuarioPorCedula($cedulaU);
-        if(mysqli_fetch_row($usuario)){
+        $nombre = usuarioPorNombre("$primerNombre $primerApellido");
+        if(mysqli_fetch_row($usuario) || mysqli_fetch_row($nombre)){
             echo "<div class='alert alert-dismissible fade show border-danger' role='alert' style='background-color: white;'>
                     <strong>Usuario</strong> El usuario ya se encuentra registrado.
                     <button type='button' class='btn-close border-0 p-1' data-bs-dismiss='alert' aria-label='Close'></button>

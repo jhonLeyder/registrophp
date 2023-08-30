@@ -14,3 +14,16 @@ function registroLogin(){
     });
 }
 
+function borrarSession(){
+    let url = '../componentes/footer.php';
+    $.ajax({
+        url: url,
+        type:'POST',
+        data: '',
+        success: function(response){
+            $("#resultado").html(response)
+        },
+    });
+}
+
+

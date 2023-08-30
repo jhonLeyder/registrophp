@@ -9,7 +9,7 @@
 			</div>
 			<div class="text-center" style="margin: auto 0 20px 0;">
 				<h1>REGISTRO USUARIO</h1>
-				<hr style="width: auto;">
+				<hr style="width: auto;" class="bg-danger">
 			</div>
 			<form id="formularioRegistroUsuario">
 				<div class="row">

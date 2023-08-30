@@ -1,3 +1,4 @@
+
 <?php
 require 'header.php';
 session_start();
@@ -7,7 +8,7 @@ if(empty($_SESSION['idUsuaLoguiado'])){ ?>
         location.replace('../');
     </script>
 <?php } ?>
-
+<div id="resultado"></div>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark m-2 ">
     <div class="container" style="margin: 0 0 0 25px;">
         <a class="navbar" href="#" style="margin: 0;">
@@ -16,13 +17,13 @@ if(empty($_SESSION['idUsuaLoguiado'])){ ?>
         <div class="collapse navbar-collapse">
             <ul class="navbar-nav ms-auto position-absolute top-40 start-30">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Registrar Usuario</a>
+                    <a class="nav-link" href="../modulos/formularioRegistrarUsuario.php">Registrar Usuario</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Consultar Productos</a>
                 </li>
-                <li>
-                    <a class="nav-link" href="#">Crear producto</a>
+                <li class="nav-item">
+                    <a class="nav-link" id="linkP" href="../modulos/formularioCrearProducto.php">Crear producto</a>
                 </li>
             </ul>
         </div>
@@ -47,9 +48,3 @@ if(empty($_SESSION['idUsuaLoguiado'])){ ?>
         </div>
     </div>
 </nav>
-<script>
-    function borrarSession(){
-        <?php session_destroy(); ?>
-        location.replace('../');
-    }
-</script>
