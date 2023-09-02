@@ -17,14 +17,12 @@
                     <button type='button' class='btn-close border-0 p-1' data-bs-dismiss='alert' aria-label='Close'></button>
             </div>";
     }else{
-        $datos = [$stiba, $caja, $rack, $columna, $sku, $nivel, $descripcion, $cantidad];
-        if(mysqli_fetch_row($usuario)){
-            echo "<div class='alert alert-dismissible fade show border-danger' role='alert' style='background-color: white;'>
-                    <strong>Usuario</strong> El usuario ya se encuentra registrado.
-                    <button type='button' class='btn-close border-0 p-1' data-bs-dismiss='alert' aria-label='Close'></button>
-                </div>";
+        $datos = [$stiba, $caja, $rack, $columna, $sku, $nivel, $descripcion, $cantidad, $idusuario ];
+        $resultado = agregarProducto($datos);
+        if($resultado == 1){
+            echo 1;
         }else{
-
+            echo $resultado;
         }
     }
 ?>

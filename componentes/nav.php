@@ -16,12 +16,14 @@ if(empty($_SESSION['idUsuaLoguiado'])){ ?>
         </a>
         <div class="collapse navbar-collapse">
             <ul class="navbar-nav ms-auto position-absolute top-40 start-30">
+            <?php if($_SESSION['cargo'] == 0): ?>
                 <li class="nav-item">
                     <a class="nav-link" href="../modulos/formularioRegistrarUsuario.php">Registrar Usuario</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Consultar Productos</a>
+                    <a class="nav-link" href="../modulos/tablaVisualisarNovedadesRegistro.php">Novedad de registros</a>
                 </li>
+            <?php endif; ?>  
                 <li class="nav-item">
                     <a class="nav-link" id="linkP" href="../modulos/formularioCrearProducto.php">Crear producto</a>
                 </li>

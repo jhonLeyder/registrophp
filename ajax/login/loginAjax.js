@@ -15,7 +15,7 @@ function registroLogin(){
 }
 
 function borrarSession(){
-    let url = '../componentes/footer.php';
+    let url = '../componentes/cerrarsesion.php';
     $.ajax({
         url: url,
         type:'POST',
