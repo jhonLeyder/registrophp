@@ -21,6 +21,14 @@
         return $resultado;
     }
 
+    //consulta usuario por cedula
+    function usuarioPorId($id){
+        require '../db_conexion/db_usuarios.php';
+        $resultado = mysqli_query($conn, "SELECT nombreUsuario FROM usuarios WHERE id = '$id'");
+        $nombre = mysqli_fetch_row($resultado);
+        return $nombre[0];
+    }
+
 
 
 ?>
