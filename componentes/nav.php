@@ -23,6 +23,9 @@ if(empty($_SESSION['idUsuaLoguiado'])){ ?>
                 <li class="nav-item">
                     <a class="nav-link" href="../modulos/tablaVisualisarNovedadesRegistro.php">Novedad de registros</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../modulos/tablaUsuariosR.php">Novedad de registros</a>
+                </li>
             <?php endif; ?>  
                 <li class="nav-item">
                     <a class="nav-link" id="linkP" href="../modulos/formularioCrearProducto.php">Crear producto</a>

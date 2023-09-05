@@ -29,6 +29,14 @@
         return $nombre[0];
     }
 
+    //TRAE TODOS LOS USUARIOS
+    function consultarUsuarios(){
+        require '../db_conexion/db_usuarios.php';
+        $resultado = mysqli_query($conn, "SELECT * FROM usuarios");
+        $usuarios = mysqli_fetch_all($resultado);
+        return $usuarios;
+    }
+
 
 
 ?>
