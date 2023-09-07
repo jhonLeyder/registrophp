@@ -35,7 +35,7 @@
 							<select class="form-select" id="tipoUsuario" name="tipoUsuario">
 								<option selected value=""></option>
 								<option value="1">Administrador</option>
-								<option value="2">Operario</option>
+								<option value="2">Colaborador</option>
 							</select>
 						</div>
 					</div>

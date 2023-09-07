@@ -10,6 +10,7 @@
         <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
         <script src="../ajax/login/loginAjax.js"></script>
         <script src="ajax/login/loginAjax.js"></script>
+        <script src="../ajax/modales/actualizarusuario.js"></script>
         <script src="../ajax/usuarios/registroUsuarios.js"></script>
         <script src="../ajax/productos/registrarproducto.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>

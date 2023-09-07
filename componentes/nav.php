@@ -21,14 +21,14 @@ if(empty($_SESSION['idUsuaLoguiado'])){ ?>
                     <a class="nav-link" href="../modulos/formularioRegistrarUsuario.php">Registrar Usuario</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="../modulos/tablaVisualisarNovedadesRegistro.php">Novedad de registros</a>
+                    <a class="nav-link" href="../modulos/tablaVisualisarNovedadesRegistro.php">Novedad de Registros</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="../modulos/tablaUsuariosR.php">Novedad de registros</a>
+                    <a class="nav-link" href="../modulos/tablaUsuariosR.php">Usuarios Registros</a>
                 </li>
             <?php endif; ?>  
                 <li class="nav-item">
-                    <a class="nav-link" id="linkP" href="../modulos/formularioCrearProducto.php">Crear producto</a>
+                    <a class="nav-link" id="linkP" href="../modulos/formularioCrearProducto.php">Crear Producto</a>
                 </li>
             </ul>
         </div>

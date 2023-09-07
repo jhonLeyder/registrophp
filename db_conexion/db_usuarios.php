@@ -1,6 +1,6 @@
 <?php 
     $servername = "localhost";
     $username = "root";
-    $database = "registrosuma";
+    $database = "appuma";
     $conn = mysqli_connect($servername, $username,'', $database);
 ?>
