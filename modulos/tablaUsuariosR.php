@@ -49,8 +49,7 @@ require '../funciones/consultarusuario.php';
 </div>
 
 <?php 
-    require '../modales/actualizarUsuario.php'; 
-    
+    require '../modales/actualizarUsuario.php';  
 ?>
 
 <script>

@@ -21,7 +21,7 @@
         return $resultado;
     }
 
-    //consulta usuario por cedula
+    //consulta usuario por id
     function usuarioPorId($id){
         require '../db_conexion/db_usuarios.php';
         $resultado = mysqli_query($conn, "SELECT nombreUsuario FROM usuarios WHERE id = '$id'");
@@ -37,6 +37,12 @@
         return $usuarios;
     }
 
+    //TRAE TODOS LOS USUARIOS
+    function actualizarDatosU($datos){
+        require '../db_conexion/db_usuarios.php';
+        $resultado = mysqli_query($conn, "UPDATE usuarios SET nombreUsuario='$datos[1]',cargo='$datos[3]',cedula='$datos[2]' WHERE id= '$datos[0]'");
+        return $resultado;
+    }
 
 
 ?>
