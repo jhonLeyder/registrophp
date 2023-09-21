@@ -3,4 +3,5 @@
     $("#nombreUsu").val(nombreUser);
     $("#cedulaUsu").val(cedulaUser);
     $("#cargoUsu").val(cargoUser);
+    $("#cedulaLog").val(cedulaUser);
  }

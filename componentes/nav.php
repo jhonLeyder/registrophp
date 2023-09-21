@@ -1,9 +1,8 @@
-
 <?php
 require 'header.php';
 session_start();
 $nombreUsuario = $_SESSION['nombreUsuario'];
-if(empty($_SESSION['idUsuaLoguiado'])){ ?>
+if (empty($_SESSION['idUsuaLoguiado'])) { ?>
     <script>
         location.replace('../');
     </script>
@@ -16,17 +15,17 @@ if(empty($_SESSION['idUsuaLoguiado'])){ ?>
         </a>
         <div class="collapse navbar-collapse">
             <ul class="navbar-nav ms-auto position-absolute top-40 start-30">
-            <?php if($_SESSION['cargo'] == 0): ?>
-                <li class="nav-item">
-                    <a class="nav-link" href="../modulos/formularioRegistrarUsuario.php">Registrar Usuario</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="../modulos/tablaVisualisarNovedadesRegistro.php">Novedad de Registros</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="../modulos/tablaUsuariosR.php">Usuarios Registros</a>
-                </li>
-            <?php endif; ?>  
+                <?php if ($_SESSION['cargo'] == 0) : ?>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../modulos/formularioRegistrarUsuario.php">Registrar Usuario</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../modulos/tablaVisualisarNovedadesRegistro.php">Novedad de Registros</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../modulos/tablaUsuariosR.php">Usuarios Registros</a>
+                    </li>
+                <?php endif; ?>
                 <li class="nav-item">
                     <a class="nav-link" id="linkP" href="../modulos/formularioCrearProducto.php">Crear Producto</a>
                 </li>
@@ -45,6 +44,7 @@ if(empty($_SESSION['idUsuaLoguiado'])){ ?>
                             </a>
                             <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
                                 <li><a class="dropdown-item" onclick="borrarSession()" href="#">Salir</a></li>
+                                <li><a class="dropdown-item" type="botton" data-bs-toggle="modal" data-bs-target="#cambiarContrasena">cambiar contraseña</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -53,3 +53,32 @@ if(empty($_SESSION['idUsuaLoguiado'])){ ?>
         </div>
     </div>
 </nav>
+
+<!-- Modalactualizar usuarios -->
+<div class="modal fade" id="cambiarContrasena" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div id="respuesta"></div>
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">Actualizar Usuario</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                        <label for="anterior-contrasena" class="col-form-label">Contraseña Actual:</label>
+                        <input type="text" class="form-control" id="anterior-contrasena" onkeyup="compararContrasena()" >
+                    </div>
+                    <div class="form-group">
+                        <label for="nueva-contrasena" class="col-form-label">Nueva Contraseña:</label>
+                        <input type="text" class="form-control" id="nueva-contrasena">
+                    </div>
+                    <div class="modal-footer">
+                        <button id="" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                        <button type="button" id="actualizarContrasena" class="btn btn-primary" onclick="">Actualizar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

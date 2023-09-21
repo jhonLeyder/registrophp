@@ -26,4 +26,24 @@ function borrarSession(){
     });
 }
 
+function compararContrasena(){
+    let url = '../logica/compararContrasenas.php'
+    let contrasena = $("#anterior-contrasena").val();
+    console.log(contrasena);
+    $.ajax({
+        url: url,
+        type:'POST',
+        data: {contrasena},
+        success: function(response){
+            if(response == 1){
+                $("#anterior-contrasena").css("border", "solid  #2e5e2a")
+            }else if(response == 0)
+                $("#anterior-contrasena").css("border", "solid red");
+            else{
+                $("#anterior-contrasena").css("border", "solid none");
+            }
+        },
+    });
+}
+
 

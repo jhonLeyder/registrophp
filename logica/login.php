@@ -13,7 +13,7 @@ if ($row >= 1) {
         $_SESSION["idUsuaLoguiado"] = $row[0];
         $_SESSION["nombreUsuario"] = $row[1];
         $_SESSION["cargo"] = $row[2];
-        $_SESSION["cedula"] = $row[4];
+        $_SESSION["cedula"] = $row[3];
         echo 1;
     }else {
         echo "<div class='alert alert-dismissible fade show border-danger' role='alert' style='background-color: white;'>

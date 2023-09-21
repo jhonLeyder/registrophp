@@ -32,8 +32,10 @@ require '../funciones/consultarusuario.php';
                         <td><?= $value[3] ?></td>
                         <td> 
                         <?php if($value[2] == 0):?> 
-                            <span>Administrador</span>
+                            <span>super admin</span>
                         <?php elseif($value[2] == 1): ?>
+                            <span>administrador</span>
+                        <?php elseif($value[2] == 2): ?>
                             <span>Colaborador</span>
                         <?php  endif;?>
                         </td>

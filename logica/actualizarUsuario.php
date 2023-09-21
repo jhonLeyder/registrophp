@@ -8,6 +8,7 @@
         $datos[] = $_POST["nombreUsu"];
         $datos[] = $_POST["cedulaUsu"];
         $datos[] = $_POST["cargoUsu"];
+        $datos[] = $_POST["cedulaLog"];
         echo actualizarDatosU($datos);   
     }
     
