@@ -16,3 +16,24 @@ function crearProducto(){
         },
     });
 }
+
+function guardarCantidadProducto(idProducto){
+    let cantida = parseInt(document.getElementById(`cantidaIngresar${idProducto}`).value);
+    let cantidadActual = parseInt(document.getElementById(`cantidaActual${idProducto}`).value);
+    if(cantida > 0){
+        let url = '../logica/ingresarCantProducto.php';
+        $.ajax({
+            url: url,
+            type:'POST',
+            data: {'idProducto':idProducto,'cantidadP':cantida, 'bandera':1, 'cantidadActual':cantidadActual},
+            success: function(response){
+                document.getElementById(`cantidaActual${idProducto}`).value = response;
+                document.getElementById(`cantidaIngresar${idProducto}`).value = '';
+            },
+        });
+    }else{
+        alert("POR FAVOR VERIFIQUE LA CANTIDAD INGRESADA");
+        document.getElementById(`cantidaIngresar${idProducto}`).value = '';
+    }
+    
+}

@@ -53,5 +53,13 @@
         }
     }
 
+    //actualiozarcontrasena del usuario con id.
+    function actualizarContrasena($password, $idUsuario){
+        echo $password, $idUsuario;
+        require '../db_conexion/db_usuarios.php';
+        $resultado = mysqli_query($conn, "UPDATE usuarios SET  contrasena='$password' WHERE id= '$idUsuario'");
+        return $resultado;
+    }
+
 
 ?>

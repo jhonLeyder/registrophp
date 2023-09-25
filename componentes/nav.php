@@ -16,18 +16,28 @@ if (empty($_SESSION['idUsuaLoguiado'])) { ?>
         <div class="collapse navbar-collapse">
             <ul class="navbar-nav ms-auto position-absolute top-40 start-30">
                 <?php if ($_SESSION['cargo'] == 0) : ?>
-                    <li class="nav-item">
+                    <li class="nav-item border-end">
                         <a class="nav-link" href="../modulos/formularioRegistrarUsuario.php">Registrar Usuario</a>
                     </li>
-                    <li class="nav-item">
+                <?php endif; ?>
+
+                <?php if ($_SESSION['cargo'] == 1 || $_SESSION['cargo'] == 0) : ?>
+                    <li class="nav-item border-end">
+                        <a class="nav-link" href="../modulos/tablaUsuariosR.php">Usuarios Registrados</a>
+                    </li>
+                    <li class="nav-item border-end">
                         <a class="nav-link" href="../modulos/tablaVisualisarNovedadesRegistro.php">Novedad de Registros</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="../modulos/tablaUsuariosR.php">Usuarios Registros</a>
-                    </li>
                 <?php endif; ?>
-                <li class="nav-item">
+
+                <li class="nav-item border-end">
                     <a class="nav-link" id="linkP" href="../modulos/formularioCrearProducto.php">Crear Producto</a>
+                </li>
+                <li class="nav-item border-end">
+                    <a class="nav-link" href="../modulos/ingresoProducto.php">ingresar producto</a>
+                </li>
+                <li class="nav-item border-end">
+                    <a class="nav-link" href="">salida producto</a>
                 </li>
             </ul>
         </div>
@@ -54,6 +64,7 @@ if (empty($_SESSION['idUsuaLoguiado'])) { ?>
     </div>
 </nav>
 
+
 <!-- Modalactualizar usuarios -->
 <div class="modal fade" id="cambiarContrasena" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div id="respuesta"></div>
@@ -64,18 +75,19 @@ if (empty($_SESSION['idUsuaLoguiado'])) { ?>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form>
+                <form id="formularioCambiarContrasena">
+                    <input type="boolval" hidden name="validarContrasena" id="validarContrasena">
                     <div class="form-group">
                         <label for="anterior-contrasena" class="col-form-label">Contraseña Actual:</label>
                         <input type="text" class="form-control" id="anterior-contrasena" onkeyup="compararContrasena()" >
                     </div>
                     <div class="form-group">
                         <label for="nueva-contrasena" class="col-form-label">Nueva Contraseña:</label>
-                        <input type="text" class="form-control" id="nueva-contrasena">
+                        <input type="text" class="form-control" id="nueva-contrasena" name="nueva-contrasena">
                     </div>
                     <div class="modal-footer">
                         <button id="" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                        <button type="button" id="actualizarContrasena" class="btn btn-primary" onclick="">Actualizar</button>
+                        <button type="button" class="btn btn-primary" onclick="actualizarContrasena()">Actualizar</button>
                     </div>
                 </form>
             </div>

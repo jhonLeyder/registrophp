@@ -1,6 +1,7 @@
 <?php
 require '../componentes/nav.php';
 require '../funciones/registros.php';
+require '../funciones/consultarProducto.php';
 require '../funciones/consultarusuario.php';
 
 ?>
@@ -28,11 +29,12 @@ require '../funciones/consultarusuario.php';
                     <?php 
                     $datos = traerTodosReportes(); 
                     foreach($datos as $key => $value): 
+                      $nombreProducto =  getProducto($value['id_producto']);
                     ?>
                     <tr>
                         <th><?= $value['id_registro'] ?></th>
                         <td><?= usuarioPorId($value['id_usuario']); ?></td>
-                        <td>Otto</td>
+                        <td><?=  $nombreProducto[0][7] ?></td>
                         <td><?= $value['fecha'] ?></td>
                         <td><?= $value['hora'] ?></td>
                         <td><?= $value['ingreso'] ?></td>

@@ -1,5 +1,6 @@
 <?php 
     //crear producto.
+
     function agregarProducto($datos){
         require '../db_conexion/db_usuarios.php';
         date_default_timezone_set("America/Bogota");
@@ -26,11 +27,38 @@
         }
     }
 
+    //trae todos los productos.
+    function getProductos(){
+        require '../db_conexion/db_usuarios.php';
+        $resultado = mysqli_query($conn, "SELECT * FROM productos ");
+        $resultado = mysqli_fetch_all($resultado);
+        return $resultado;
+    }
+
+    //trae un unico productos.
+    function getProducto($id){
+        require '../db_conexion/db_usuarios.php';
+        $resultado = mysqli_query($conn, "SELECT * FROM productos WHERE  id = '$id'");
+        $resultado = mysqli_fetch_all($resultado);
+        return $resultado;
+    }
+
+    function agregarCantidadProducto($idProducto, $totalCantidad, $cantidadPPositivo, $idUsuario, $cantidadPNegativo){
+        require '../db_conexion/db_usuarios.php';
+        date_default_timezone_set("America/Bogota");
+        $fecha = date('Y-m-d');
+        $hora = date('h:i:s');
+        $resultado = mysqli_query($conn, "UPDATE productos SET cantidad = '$totalCantidad' WHERE id='$idProducto'");
+        if($resultado){
+            registroIngresos($idUsuario, $idProducto, $cantidadPPositivo, $cantidadPNegativo, $fecha, $hora);
+            return getProducto($idProducto);
+        }
+    }
+    
     //registra novedad del proseso.
     function registroIngresos($id_usuario, $id_producto, $ingreso, $salida, $fecha, $hora){
         require '../db_conexion/db_usuarios.php';
         $resultado = mysqli_query($conn, "INSERT INTO registro_ingresos(id_registro, id_usuario, id_producto, ingreso, salida, fecha, hora) 
         VALUES (NULL,'$id_usuario', '$id_producto','$ingreso', '$salida', '$fecha','$hora')");
     }
-
 ?>

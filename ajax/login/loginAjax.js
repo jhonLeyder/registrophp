@@ -36,14 +36,16 @@ function compararContrasena(){
         data: {contrasena},
         success: function(response){
             if(response == 1){
-                $("#anterior-contrasena").css("border", "solid  #2e5e2a")
-            }else if(response == 0)
+                $("#anterior-contrasena").css("border", "solid  #2e5e2a");
+                $("#validarContrasena").val(true);
+            }else if(response == 0){ 
                 $("#anterior-contrasena").css("border", "solid red");
-            else{
+                $("#validarContrasena").val(false);
+            }else{
                 $("#anterior-contrasena").css("border", "solid none");
+                $("#validarContrasena").val(false);
             }
         },
     });
 }
-
 
