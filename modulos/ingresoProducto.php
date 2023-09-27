@@ -1,6 +1,8 @@
 <?php
 require '../funciones/consultarProducto.php';
 require '../componentes/nav.php';
+
+$opcion = $_GET['opcion'];
 ?>
 <div class="p-5">
     <div class="row justify-content-center m-4">
@@ -9,7 +11,11 @@ require '../componentes/nav.php';
                 <div id="respuesta"></div>
             </div>
             <div class="text-center" style="margin: auto 0 20px 0;">
-                <h1>Ingreso</h1>
+                <?php if($opcion == 'Ingreso'): ?>
+                    <h1><?= $opcion ?> Mercancia</h1>
+                <?php elseif($opcion == 'Salida'): ?>
+                    <h1><?= $opcion ?> Mercancia</h1>
+                <?php endif; ?>
                 <hr style="width: auto; background-color: #dc3545;">
             </div>
             <div style="width: 100%;">
@@ -24,7 +30,7 @@ require '../componentes/nav.php';
                             <th>Rack</th>
                             <th>Columna</th>
                             <th style="width: 5px;">total&nbsp;pruducto</th>
-                            <th>Ingreso</th>
+                            <th> <?= $opcion == 'Ingreso'? 'Ingreso': 'Salida'?></th>
                             <th><i class="fa fa-motorcycle"></i></th>
                         </tr>
                     </thead>
@@ -50,9 +56,17 @@ require '../componentes/nav.php';
                                 <input class="border-0 border-bottom border-danger text-center me-0" style="outline: none; width: 100px;" type="number"
                                 name="cantidaIngresar<?= $key[0] ?>" id="cantidaIngresar<?= $key[0] ?>">                                
                             </td>
-                            <td>  
-                                <button class="btn btn-danger btn-sm" type="button" onclick="guardarCantidadProducto(<?=$key[0]?>)">Guardar</button>
-                            </td>
+
+                            <?php if($opcion == 'Ingreso'): ?>
+                                <td>  
+                                    <button class="btn btn-danger btn-sm" type="button" onclick="guardarCantidadProducto(<?=$key[0]?>,'Ingreso')">Guardar</button>
+                                </td>
+                            <?php elseif($opcion == 'Salida'): ?>
+                                <td>  
+                                    <button class="btn btn-danger btn-sm" type="button" onclick="guardarCantidadProducto(<?=$key[0]?>,'Salida')">Guardar</button>
+                                </td>
+                            <?php endif; ?>
+
                         </tr>
                         <?php endforeach; ?>
                     </tbody>

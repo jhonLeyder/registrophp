@@ -37,8 +37,8 @@ require '../funciones/consultarusuario.php';
                         <td><?=  $nombreProducto[0][7] ?></td>
                         <td><?= $value['fecha'] ?></td>
                         <td><?= $value['hora'] ?></td>
-                        <td><?= $value['ingreso'] ?></td>
-                        <td><?= $value['salida'] ?></td>
+                        <td><?=  $value['ingreso'] == 0 ? ' ': $value['ingreso']; ?></td>
+                        <td><?= $value['salida'] == 0 ? ' ': $value['salida']; ?></td>
                     </tr>
                     <?php endforeach; ?>    
                 </tbody>

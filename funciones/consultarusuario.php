@@ -49,7 +49,7 @@
             $resultado = mysqli_query($conn, "UPDATE usuarios SET nombreUsuario='$datos[1]', cargo='$datos[3]', cedula='$datos[2]' WHERE id= '$datos[0]'");
             return $resultado;
         }else{
-            return "<div class='alert alert-dismissible fade show border-success' role='alert' style='background-color: white;'><strong>ERROR</strong> El usuario ya esta creado.<button type='button' class='btn-close border-0 p-1' data-bs-dismiss='alert' aria-label='Close'></button></div>";
+            return "<div class='alert alert-dismissible fade show border-danger' role='alert' style='background-color: white;'><strong>ERROR</strong> El usuario ya esta creado.<button type='button' class='btn-close border-0 p-1' data-bs-dismiss='alert' aria-label='Close'></button></div>";
         }
     }
 

@@ -7,13 +7,18 @@
     $idProducto = $_POST['idProducto'];
     $cantidadP = $_POST['cantidadP'];
     $cantidadActual = $_POST['cantidadActual'];
+    $opcion = $_POST['opcion'];
+    $totalCantidadMax = 0;
+    $totalCantidadMin = 0;
 
-    if($_POST['bandera'] == 1){
+    if($opcion == 'Ingreso'){
+        $totalCantidadMax = $cantidadP;
         $totalCantidad = $cantidadP + $cantidadActual;
-        $resultado = agregarCantidadProducto($idProducto, $totalCantidad, $cantidadP, $idUsuaLoguiado, 0);
-        echo $resultado[0][8];
-    }else{
-
+    }elseif($opcion == 'Salida'){
+        $totalCantidadMin = $cantidadP;
+        $totalCantidad = $cantidadActual - $cantidadP;
     }
+    $resultado = agregarCantidadProducto($idProducto, $totalCantidad, $cantidadP, $idUsuaLoguiado, $totalCantidadMin, $totalCantidadMax );
+    echo $resultado[0][8];
 
 ?>

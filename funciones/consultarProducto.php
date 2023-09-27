@@ -43,14 +43,14 @@
         return $resultado;
     }
 
-    function agregarCantidadProducto($idProducto, $totalCantidad, $cantidadPPositivo, $idUsuario, $cantidadPNegativo){
+    function agregarCantidadProducto($idProducto, $totalCantidad, $cantidadPtotal, $idUsuario, $cantidadPNegativo, $totalCantidadMin){
         require '../db_conexion/db_usuarios.php';
         date_default_timezone_set("America/Bogota");
         $fecha = date('Y-m-d');
         $hora = date('h:i:s');
         $resultado = mysqli_query($conn, "UPDATE productos SET cantidad = '$totalCantidad' WHERE id='$idProducto'");
         if($resultado){
-            registroIngresos($idUsuario, $idProducto, $cantidadPPositivo, $cantidadPNegativo, $fecha, $hora);
+            registroIngresos($idUsuario, $idProducto, $totalCantidadMin, $cantidadPNegativo, $fecha, $hora);
             return getProducto($idProducto);
         }
     }

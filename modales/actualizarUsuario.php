@@ -1,11 +1,10 @@
-<!-- Modalactualizar usuarios -->
+<!-- Modal actualizar usuarios -->
 <div class="modal fade" id="modalActualizarUsuario" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <div id="respuesta"></div>
                 <h5 class="modal-title" id="staticBackdropLabel">Actualizar Usuario</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
                 <form id="actualizarDatosU">
@@ -39,6 +38,7 @@
                             <button type="button" class="btn btn-primary" onclick="actualizarDatosUsuario()">Actualizar</button>
                         </div>
                 </form>
+                <div id="respuesta1"></div>
             </div>
         </div>
     </div>

@@ -34,10 +34,10 @@ if (empty($_SESSION['idUsuaLoguiado'])) { ?>
                     <a class="nav-link" id="linkP" href="../modulos/formularioCrearProducto.php">Crear Producto</a>
                 </li>
                 <li class="nav-item border-end">
-                    <a class="nav-link" href="../modulos/ingresoProducto.php">ingresar producto</a>
+                    <a class="nav-link" href="../modulos/ingresoProducto.php?opcion=Ingreso">Ingresar Producto</a>
                 </li>
                 <li class="nav-item border-end">
-                    <a class="nav-link" href="">salida producto</a>
+                    <a class="nav-link" href="../modulos/ingresoProducto.php?opcion=Salida">salida Producto</a>
                 </li>
             </ul>
         </div>
