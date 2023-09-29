@@ -34,6 +34,12 @@ function guardarCantidadProducto(idProducto, opcion){
             success: function(response){
                 document.getElementById(`cantidaActual${idProducto}`).value = response;
                 document.getElementById(`cantidaIngresar${idProducto}`).value = '';
+
+                var total = 0;
+                $('[id*="cantidaActual"]').each(function(){
+                    total += parseFloat($(this).val());
+                });
+                $('#total').val(total);
             },
         });
     }else{
@@ -43,3 +49,24 @@ function guardarCantidadProducto(idProducto, opcion){
     
 }
 
+function actualizarProducto(idProducto, sku, descripcion, nivel, stiba, caja, rack, columna){
+    //$("#").val(idProducto,);
+    console.log(idProducto, sku, descripcion, nivel, stiba, caja, rack, columna);
+    $("#sku").val(sku);
+    $("#descripcion").val(descripcion);
+    $("#nivel").val(nivel);
+    $("#stiba").val(stiba);
+    $("#caja").val(caja);
+    $("#rack").val(rack);
+    $("#columna").val(columna);
+
+    $.ajax({
+        url: url,
+        type:'POST',
+        data: {'idProducto':idProducto},
+        success: function(response){
+            alert('el producto fue eliminado');
+        },
+    });
+    
+}

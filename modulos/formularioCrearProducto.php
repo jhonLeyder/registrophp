@@ -47,7 +47,7 @@
 							<input type="text" class="form-control" id="cantidad" name="cantidad" placeholder="Cantidad Producto">
 						</div>
                         <div class="mb-3">
-                            <label for="descripcion" class="form-label">Descripcion</label>
+                            <label for="descripcion" class="form-label">Descripcion o Nombre</label>
                             <textarea type="" class="form-control" id="descripcion" name="descripcion" placeholder="Descripcion"></textarea>
                         </div>
 					</div>
