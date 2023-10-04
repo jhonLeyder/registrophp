@@ -1,6 +1,5 @@
 <?php 
     //crear producto.
-
     function agregarProducto($datos){
         require '../db_conexion/db_usuarios.php';
         date_default_timezone_set("America/Bogota");
@@ -27,7 +26,7 @@
         }
     }
 
-    //trae todos los productos.
+    //Trae todos los productos.
     function getProductos(){
         require '../db_conexion/db_usuarios.php';
         $resultado = mysqli_query($conn, "SELECT * FROM productos ");
@@ -36,7 +35,7 @@
         return $resultado;
     }
 
-    //trae un unico productos.
+    //Trae un unico producto.
     function getProducto($id){
         require '../db_conexion/db_usuarios.php';
         $resultado = mysqli_query($conn, "SELECT * FROM productos WHERE  id = '$id'");
@@ -58,6 +57,21 @@
         }
         mysqli_close($conn);
     }
+
+    //actualiza producto
+    function actualizarProducto($datos){
+        require '../db_conexion/db_usuarios.php';
+        $resul = mysqli_query($conn, "UPDATE productos SET stiba = '$datos[4]', caja = '$datos[5]', rack = '$datos[6]', columna = '$datos[7]', sku = '$datos[1]',
+        nivel = '$datos[3]', descripcion = '$datos[2]' WHERE id='$datos[0]'");
+        mysqli_close($conn);
+        if($resul){
+            $resultado = getProducto($datos[0]);
+            return $resultado;
+        }else{
+            echo 0;
+        }
+    }
+
     
     //registra novedad del proseso.
     function registroIngresos($id_usuario, $id_producto, $ingreso, $salida, $fecha, $hora){

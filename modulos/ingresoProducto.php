@@ -77,7 +77,7 @@ $opcion = $_GET['opcion'];
                             <?php if ($_SESSION['cargo'] == 0):?>
                                 <td>
                                     <button class="btn btn-danger btn-sm" type="button" 
-                                    onclick="actualizarProducto('<?=$key[0]?>', '<?=$key[5]?>','<?=$key[7]?>','<?=$key[6]?>','<?=$key[1]?>', '<?=$key[2]?>', '<?=$key[3]?>', '<?=$key[4]?>')"
+                                    onclick="enviarDatosModalActualizar('<?=$key[0]?>', '<?=$key[5]?>','<?=$key[7]?>','<?=$key[6]?>','<?=$key[1]?>', '<?=$key[2]?>', '<?=$key[3]?>', '<?=$key[4]?>')"
                                     data-bs-toggle="modal" data-bs-target="#modalActualizarProducto">Actualizar</button>
                                 </td>
                             <?php endif?>
@@ -112,9 +112,11 @@ $opcion = $_GET['opcion'];
             <div class="modal-header">
                 <h5 class="modal-title" id="staticBackdropLabel">Actualizar Producto</h5>
             </div>
+            <div id="respuestaActualizar"></div>
             <div class="modal-body">
             <form id="formActualizarProducto">
                 <input type="text" hidden name="idUsuario" value="<?= $_SESSION['idUsuaLoguiado'] ?>">
+                <input type="text" hidden name="idProductoActualizar" id="idProductoActualizar">
 				<div class="row">
 					<div class="col-6">
 						<div class="mb-3 m-1">

@@ -49,9 +49,8 @@ function guardarCantidadProducto(idProducto, opcion){
     
 }
 
-function actualizarProducto(idProducto, sku, descripcion, nivel, stiba, caja, rack, columna){
-    //$("#").val(idProducto,);
-    console.log(idProducto, sku, descripcion, nivel, stiba, caja, rack, columna);
+function enviarDatosModalActualizar(idProducto, sku, descripcion, nivel, stiba, caja, rack, columna){
+    $("#idProductoActualizar").val(idProducto);
     $("#sku").val(sku);
     $("#descripcion").val(descripcion);
     $("#nivel").val(nivel);
@@ -59,14 +58,28 @@ function actualizarProducto(idProducto, sku, descripcion, nivel, stiba, caja, ra
     $("#caja").val(caja);
     $("#rack").val(rack);
     $("#columna").val(columna);
+}
 
+function actualizarProducto(){
+    let url = '../logica/actualizarProducto.php';
     $.ajax({
         url: url,
         type:'POST',
-        data: {'idProducto':idProducto},
+        data: $("#formActualizarProducto").serialize(),
         success: function(response){
-            alert('el producto fue eliminado');
+            let datos = JSON.parse(response)
+            console.log(datos[0]);
+            if(response == 0){                
+                $("#respuestaActualizar").html("<div class='alert alert-dismissible fade show border-danger' role='alert' style='background-color: white;'>"+
+                "<strong>ERROR</strong> debes de llenar los datos."+
+                "<button type='button' class='btn-close border-0 p-1' data-bs-dismiss='alert' aria-label='Close'></button></div>");
+            }else{
+                $("#respuestaActualizar").html("<div class='alert alert-dismissible fade show border-success' role='alert' style='background-color: white;'>"+
+                "<strong>EXITOSO</strong> Datos actualizados."+
+                "<button class='btn-close border-0 p-1' data-bs-dismiss='alert' aria-label='Close'></button></div>");
+                location.reload();
+            }
+     
         },
     });
-    
 }
